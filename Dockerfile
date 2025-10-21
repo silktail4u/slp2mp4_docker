@@ -112,6 +112,10 @@ RUN \
   RUN chown -R abc /tmp
   # add local files
   COPY /root /
+  RUN chmod +x /etc/s6-overlay/s6-rc.d/slp2mp4-watcher/run \
+    && chmod +x /etc/s6-overlay/s6-rc.d/slp2mp4-watcher/up \
+    && chmod +x /etc/s6-overlay/s6-rc.d/slp2mp4-watcher-deps/run \
+    && chmod +x /etc/s6-overlay/s6-rc.d/slp2mp4-watcher-deps/up || true
   RUN ls
   # ports and volumes
   EXPOSE 3001
